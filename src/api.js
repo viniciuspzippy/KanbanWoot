@@ -1,3 +1,4 @@
+import { debugLog } from './debug';
 async function chatwootFetch(endpoint, options = {}) {
   const url = `${CHATWOOT_URL}/api/v1/accounts/${ACCOUNT_ID}${endpoint}`;
   debugLog('chatwootFetch', url, options);
