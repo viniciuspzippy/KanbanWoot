@@ -15,6 +15,14 @@
         REACT_APP_CHATWOOT_URL: 'https://chatwoot.zippydigital.com.br',
         REACT_APP_DEBUG: 'false'
       };
+      // Globals para api.js (fallback compatibilidade)
+      var CHATWOOT_URL = window._env_.REACT_APP_CHATWOOT_URL;
+      var ACCOUNT_ID = window._env_.REACT_APP_CHATWOOT_ACCOUNT_ID;
+      var TOKEN = window._env_.REACT_APP_CHATWOOT_TOKEN;
+      var chatwootHeaders = {
+        'Content-Type': 'application/json',
+        'api_access_token': TOKEN
+      };
     </script>
     <noscript>Você precisa habilitar o JavaScript para ver essa aplicação.</noscript>
     <div id="root"></div>
