@@ -24,6 +24,14 @@ server {
     listen 3000;
     server_name localhost;
 
+    # Nunca cachear env.js (muda a cada deploy)
+    location = /env.js {
+        root   /usr/share/nginx/html;
+        add_header Cache-Control "no-store, no-cache, must-revalidate, max-age=0";
+        add_header Pragma "no-cache";
+        etag off;
+    }
+
     location / {
         root   /usr/share/nginx/html;
         index  index.html index.htm;
