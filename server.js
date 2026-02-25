@@ -6,11 +6,12 @@ const app = express();
 const PORT = process.env.PORT || 80;
 const CHATWOOT_URL = process.env.REACT_APP_CHATWOOT_URL || 'https://chatwoot.zippydigital.com.br';
 
-// Proxy /api/* para o Chatwoot (resolve CORS)
-app.use('/api', createProxyMiddleware({
+// Proxy /api/* para o Chatwoot (mantém path completo, resolve CORS)
+app.use(createProxyMiddleware({
   target: CHATWOOT_URL,
   changeOrigin: true,
   secure: true,
+  pathFilter: '/api',
 }));
 
 // Serve arquivos estáticos do build
