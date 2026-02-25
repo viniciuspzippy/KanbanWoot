@@ -13,6 +13,12 @@ window._env_ = {
 EOF
 cat "$ENV_FILE"
 
+# Cache-bust: atualiza referência do env.js no index.html com timestamp
+BUST=$(date +%s)
+INDEX="/usr/share/nginx/html/index.html"
+sed -i "s|/env.js\"|/env.js?v=${BUST}\"|g" "$INDEX" 2>/dev/null || true
+echo ">>> Cache-bust env.js?v=${BUST}"
+
 # === 2. Gera nginx.conf com proxy reverso para Chatwoot ===
 NGINX_CONF="/etc/nginx/conf.d/default.conf"
 BACKEND="${CHATWOOT_BACKEND_URL:-http://localhost}"
