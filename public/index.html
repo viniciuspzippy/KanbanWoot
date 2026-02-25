@@ -8,23 +8,7 @@
     <title>KanbanWoot</title>
   </head>
    <body>
-    <script>
-      window._env_ = {
-        REACT_APP_CHATWOOT_TOKEN: 'H9bu8h3Afx4Y86fsjyNdSAr4',
-        REACT_APP_CHATWOOT_ACCOUNT_ID: '1',
-        REACT_APP_CHATWOOT_URL: 'https://chatwoot.zippydigital.com.br',
-        REACT_APP_DEBUG: 'false'
-      };
-      // Globals para api.js (fallback compatibilidade)
-      // CHATWOOT_URL vazio = usa proxy do dev server (evita CORS)
-      var CHATWOOT_URL = '';
-      var ACCOUNT_ID = window._env_.REACT_APP_CHATWOOT_ACCOUNT_ID;
-      var TOKEN = window._env_.REACT_APP_CHATWOOT_TOKEN;
-      var chatwootHeaders = {
-        'Content-Type': 'application/json',
-        'api_access_token': TOKEN
-      };
-    </script>
+    <script src="%PUBLIC_URL%/env.js"></script>
     <noscript>Você precisa habilitar o JavaScript para ver essa aplicação.</noscript>
     <div id="root"></div>
 

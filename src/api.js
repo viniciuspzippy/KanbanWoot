@@ -1,8 +1,7 @@
 import { debugLog } from './debug';
 
-// CHATWOOT_URL vazio = usa proxy do dev server (evita CORS)
-// O proxy é configurado em package.json → "proxy": "https://chatwoot.zippydigital.com.br"
-const CHATWOOT_URL = '';
+// Lê configuração do window._env_ (injetado pelo entrypoint.sh no container)
+const CHATWOOT_URL = (window._env_ && window._env_.REACT_APP_CHATWOOT_URL) || '';
 const ACCOUNT_ID = (window._env_ && window._env_.REACT_APP_CHATWOOT_ACCOUNT_ID) || '1';
 const TOKEN = (window._env_ && window._env_.REACT_APP_CHATWOOT_TOKEN) || '';
 const chatwootHeaders = {
@@ -63,9 +62,7 @@ export async function getContacts() {
 export async function getCustomAttributes() {
   debugLog('api.js: getCustomAttributes chamado');
   try {
-    // Busca todos os atributos customizados
     const data = await chatwootFetch('/custom_attribute_definitions');
-    // Filtra apenas os de contato
     const all = data.payload || data || [];
     const filtered = Array.isArray(all)
       ? all.filter(attr => attr.attribute_model === 'contact_attribute')
@@ -82,7 +79,7 @@ export async function getCustomAttributeById(id) {
   debugLog('api.js: getCustomAttributeById chamado', id);
   try {
     const data = await chatwootFetch(`/custom_attribute_definitions/${id}`);
-    return data.payload || data; // pode vir como objeto direto
+    return data.payload || data;
   } catch (error) {
     debugLog('Erro ao buscar atributo customizado por ID:', error);
     throw error;
