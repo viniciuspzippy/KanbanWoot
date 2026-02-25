@@ -18,6 +18,8 @@ NGINX_CONF="/etc/nginx/conf.d/default.conf"
 BACKEND="${CHATWOOT_BACKEND_URL:-http://localhost}"
 echo ">>> Gerando $NGINX_CONF com proxy para $BACKEND..."
 cat <<EOF > "$NGINX_CONF"
+underscores_in_headers on;
+
 server {
     listen 3000;
     server_name localhost;
