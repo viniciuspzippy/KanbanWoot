@@ -24,6 +24,7 @@
     "postcss": "^8.4.38",
     "autoprefixer": "^10.4.16"
   },
+  "proxy": "https://chatwoot.zippydigital.com.br",
   "browserslist": {
     "production": [
       ">0.2%",

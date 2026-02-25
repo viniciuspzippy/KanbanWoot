@@ -1,7 +1,8 @@
 import { debugLog } from './debug';
 
-// Lê configuração do window._env_ (definido em public/env.js)
-const CHATWOOT_URL = (window._env_ && window._env_.REACT_APP_CHATWOOT_URL) || '';
+// CHATWOOT_URL vazio = usa proxy do dev server (evita CORS)
+// O proxy é configurado em package.json → "proxy": "https://chatwoot.zippydigital.com.br"
+const CHATWOOT_URL = '';
 const ACCOUNT_ID = (window._env_ && window._env_.REACT_APP_CHATWOOT_ACCOUNT_ID) || '1';
 const TOKEN = (window._env_ && window._env_.REACT_APP_CHATWOOT_TOKEN) || '';
 const chatwootHeaders = {

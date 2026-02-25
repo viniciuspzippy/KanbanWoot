@@ -16,7 +16,8 @@
         REACT_APP_DEBUG: 'false'
       };
       // Globals para api.js (fallback compatibilidade)
-      var CHATWOOT_URL = window._env_.REACT_APP_CHATWOOT_URL;
+      // CHATWOOT_URL vazio = usa proxy do dev server (evita CORS)
+      var CHATWOOT_URL = '';
       var ACCOUNT_ID = window._env_.REACT_APP_CHATWOOT_ACCOUNT_ID;
       var TOKEN = window._env_.REACT_APP_CHATWOOT_TOKEN;
       var chatwootHeaders = {
