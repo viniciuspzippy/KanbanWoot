@@ -1,6 +1,6 @@
 {
   "name": "chatwoot-kanban",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Interface Kanban integrada ao Chatwoot via custom_attributes",
   "main": "src/index.js",
   "scripts": {
