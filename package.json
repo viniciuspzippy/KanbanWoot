@@ -4,7 +4,7 @@
   "description": "Interface Kanban integrada ao Chatwoot via custom_attributes",
   "main": "src/index.js",
   "scripts": {
-    "start": "react-scripts start",
+    "start": "DANGEROUSLY_DISABLE_HOST_CHECK=true react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
