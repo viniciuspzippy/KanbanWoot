@@ -20,7 +20,7 @@ export function useDynamicKanbanData(reloadFlag = 0) {
   const [error, setError] = useState(null);
 
   // Refs para armazenar o último parâmetro da URL e o último atributo selecionado
-  const lastParamRef = useRef(null);
+  const lastParamRef = useRef(undefined);
   const lastAttributeKeyRef = useRef(null);
 
   // Memoização das colunas para evitar re-renderizações desnecessárias
